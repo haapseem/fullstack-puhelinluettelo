@@ -54,13 +54,14 @@ const App = (props) => {
 
         setTimeout(() => {
           setNotification(null)
-        }, 1000)
+        }, 3000)
       }).catch(error => {
-        setNotification([{text:'numero poistettu ennestään', error: true}])
+        console.log(error)
+        setNotification([{text:error.response.data.error, error: true}])
 
         setTimeout(() => {
           setNotification(null)
-        }, 1000)
+        }, 3000)
       })
     }
   }
@@ -80,13 +81,13 @@ const App = (props) => {
 
           setTimeout(() => {
             setNotification(null)
-          }, 1000)
+          }, 3000)
         }).catch(error => {
-          setNotification([{text:'numero poistettu', error: true}])
+          setNotification([{text:error.response.data.error, error: true}])
 
           setTimeout(() => {
             setNotification(null)
-          }, 1000)
+          }, 3000)
         })
       }
       return ;
@@ -102,14 +103,15 @@ const App = (props) => {
 
       setTimeout(() => {
         setNotification(null)
-      }, 1000)
+      }, 3000)
 
     }).catch(error => {
-      setNotification([{text:'error', error: false}])
+      console.log(error.response.data)
+      setNotification([{text:error.response.data.error, error: true}])
 
       setTimeout(() => {
         setNotification(null)
-      }, 1000)
+      }, 3000)
     })
 
   }
